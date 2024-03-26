@@ -17,6 +17,3 @@
 1. 上传进度实时展示。
 2. 存在失败的上传任务时，点击全部继续支持重试全部失败的任务，失败的任务支持单独重试。
 3. 并发限制，同时最多只允许 5 个任务。
-
-[Image](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/preview/FnwbbuXfPo744NxNKvscxdF6nqc/?preview_type=16)
-[Image](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/Rfnvb77sSoqQK4xoE42cOxAMnHc/?fallback_source=1&height=1280&mount_node_token=JDWgdPFdgo8QApxwUe5cFJQ2nIb&mount_point=docx_image&policy=equal&width=1280)
