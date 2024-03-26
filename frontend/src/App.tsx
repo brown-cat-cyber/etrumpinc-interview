@@ -1,3 +1,10 @@
+import UploadingModal from "./components/UploadingModal";
+
 export default function App() {
-  return <div className="text-red-500">App</div>;
+  return (
+    <>
+      <div className="bg-red-400">hello</div>
+      <UploadingModal />
+    </>
+  );
 }
