@@ -11,7 +11,13 @@ const config: Configuration = {
     rules: [
       {
         test: /.tsx?$/,
-        use: "babel-loader",
+        use: [
+          {
+            loader: "babel-loader",
+            options: { sourceMaps: true },
+          },
+        ],
+
         exclude: /node_modules/,
       },
       {
@@ -39,7 +45,15 @@ const config: Configuration = {
     port: 3001,
     open: true,
     hot: true,
+    proxy: [
+      {
+        context: ["/api"],
+        target: "http://localhost:3002",
+        pathRewrite: { "^/api": "" },
+      },
+    ],
   },
+  devtool: "source-map",
 };
 
 export default config;
