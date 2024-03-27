@@ -4,6 +4,7 @@ import {
   updateFileUpdatingPercentage,
 } from "../store/actions";
 export const putFileToServer = async (file: File) => {
+  // TODO: 如何区分不同文件夹同名文件
   updateFileStatus(file, "uploading");
 
   try {

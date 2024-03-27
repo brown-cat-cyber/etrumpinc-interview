@@ -1,8 +1,16 @@
 import React from "react";
+import { FileWithStatus } from "../../../store";
+import { putFileToServer } from "../../../api/api";
+import { hoverBg } from "..";
 
-type Props = {};
+type Props = {
+  file: FileWithStatus;
+};
 
-export default function RestartButton({}: Props) {
+export default function RestartButton({ file }: Props) {
+  function handleRestart() {
+    putFileToServer(file.file);
+  }
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +18,8 @@ export default function RestartButton({}: Props) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className={`w-6 h-6 cursor-pointer box-content`}
+      onClick={handleRestart}
     >
       <path
         strokeLinecap="round"

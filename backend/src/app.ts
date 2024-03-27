@@ -35,25 +35,22 @@ const server = createServer((req, res) => {
       };
     })
     .then(({ body, status = 200, type = "text/plain" }) => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (Math.random() > 0.3) {
-            res.writeHead(500, {
-              "Content-Type": "text/plain",
-            });
-            res.end("server error");
-            return;
-          }
-          res.writeHead(status, {
-            "Content-Type": type,
+      setTimeout(() => {
+        if (Math.random() > 0.3) {
+          res.writeHead(500, {
+            "Content-Type": "text/plain",
           });
-          if (body && typeof body.pipe === "function") {
-            body.pipe(res);
-          }
-          res.end(body);
-          resolve(null);
-        }, 3000);
-      });
+          res.end("server error");
+          return;
+        }
+        res.writeHead(status, {
+          "Content-Type": type,
+        });
+        if (body && typeof body.pipe === "function") {
+          body.pipe(res);
+        }
+        res.end(body);
+      }, 0);
     });
 });
 server.listen(3002, () => {
