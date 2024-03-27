@@ -1,14 +1,14 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import CloseButton from "./components/CloseButton";
-import CheckCircle from "./components/CheckCircle";
+import CloseMark from "../ui/CloseMark";
+import CheckCircle from "../ui/CheckCircle";
 import UploadingButton from "./components/SelectingButton";
 import { FileWithStatus, useFileStore } from "../../store";
 import ProgressCircle from "./components/ProgressCircle";
 import RestartButton from "./components/RestartButton";
 import FilesList from "./components/FilesList";
 import Header from "./components/Header";
-export const hoverBg = "p-1 -m-1 hover:bg-gray-200/80 rounded-lg";
+export const hoverBg = "hover:p-1 hover:-m-1 hover:bg-gray-200/80 rounded-lg";
 export default function UploadingModal() {
   let [isOpen, setIsOpen] = useState(true);
 
@@ -57,10 +57,9 @@ export default function UploadingModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-4 text-left align-middle shadow-lg transition-all">
+                <Dialog.Panel className="w-full max-w-md transform  bg-white p-4 text-left align-middle shadow-lg transition-all">
                   <Header handleClose={closeModal} />
-                  <div className=" h-[1px] -mx-6 bg-gray-200 my-5" />
-
+                  <div className=" h-[1px] -mx-4  bg-gray-200 mt-5" />
                   <FilesList />
                   <UploadingButton />
                 </Dialog.Panel>

@@ -1,11 +1,9 @@
 import React from "react";
-import { hoverBg } from "..";
+import { hoverBg } from "../UploadingModal";
 
-type Props = {
-  onClick: () => void;
-};
+type Props = {};
 
-export default function CloseButton({ onClick }: Props) {
+export default function CloseMark({}: Props) {
   // TODO 样式并未统一
   return (
     <svg
@@ -14,8 +12,7 @@ export default function CloseButton({ onClick }: Props) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      onClick={onClick}
-      className={`w-6 h-6 cursor-pointer stroke-gray-600 box-content ${hoverBg}`}
+      className={`w-6 h-6  stroke-gray-600 `}
     >
       <path
         strokeLinecap="round"

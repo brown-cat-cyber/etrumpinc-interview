@@ -1,10 +1,11 @@
 import React from "react";
 import { FileWithStatus, useFileStore } from "../../../store";
-import CheckCircle from "./CheckCircle";
+import CheckCircle from "../../ui/CheckCircle";
 import ProgressCircle from "./ProgressCircle";
 import RestartButton from "./RestartButton";
-import CustomTooltip from "./Tooltip";
-
+import CustomTooltip from "./CheckerButton/Tooltip";
+// TODO 字体问题
+// TODO 不同图标偏移问题
 type Props = {};
 
 export default function FilesList({}: Props) {
@@ -20,17 +21,11 @@ export default function FilesList({}: Props) {
       case "uploading":
         return <ProgressCircle percent={file.uploadingPercentage || 0} />;
       case "error":
-        return (
-          <CustomTooltip
-            text={uploadingFilesSum >= 5 ? "最多同时上传5个文件" : "重新上传"}
-          >
-            <RestartButton file={file} />
-          </CustomTooltip>
-        );
+        return <RestartButton file={file} />;
     }
   }
   return (
-    <div className="mb-4 h-[14rem] overflow-hidden overflow-y-auto ">
+    <div className="mb-4 h-[14rem] overflow-hidden overflow-y-auto  -mx-4 ">
       {files.map((f) => (
         <div
           className="flex items-center overflow-hidden p-4 hover:bg-gray-200"

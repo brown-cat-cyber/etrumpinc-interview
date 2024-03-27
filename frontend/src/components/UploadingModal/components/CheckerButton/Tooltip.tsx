@@ -16,12 +16,17 @@ export default function CustomTooltip({
     <Tooltip.Provider delayDuration={200}>
       <Tooltip.Root>
         <Tooltip.Trigger>{children}</Tooltip.Trigger>
-        {isVisible && (
-          <Tooltip.Content className="px-2 py-1 bg-black text-white rounded-md">
-            {text}
-            <Tooltip.Arrow />
-          </Tooltip.Content>
-        )}
+
+        <Tooltip.Content
+          className={`px-2 py-1 bg-black/70 text-white rounded-md ${
+            !isVisible && "invisible"
+          }`}
+        >
+          {text}
+          <Tooltip.Arrow
+            className={`fill-black/70 ${!isVisible && "invisible"}`}
+          />
+        </Tooltip.Content>
       </Tooltip.Root>
     </Tooltip.Provider>
   );
