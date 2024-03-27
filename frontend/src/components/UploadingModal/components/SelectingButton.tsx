@@ -28,7 +28,7 @@ const CustomFileInput = () => {
       <UploadSingleChecker
         onClick={triggerFileInput}
         className={``}
-        text="选择文件"
+        text="从本地选择文件"
       >
         选择文件
       </UploadSingleChecker>

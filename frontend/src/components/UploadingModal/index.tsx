@@ -10,7 +10,7 @@ import FilesList from "./components/FilesList";
 import Header from "./components/Header";
 export const hoverBg = "hover:p-1 hover:-m-1 hover:bg-gray-200/80 rounded-lg";
 export default function UploadingModal() {
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -26,7 +26,7 @@ export default function UploadingModal() {
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md bg-red-400 px-6 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="rounded-md bg-blue-400 px-6 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/85"
         >
           打开上传框
         </button>

@@ -18,6 +18,7 @@ export default function CustomTooltip({
         <Tooltip.Trigger>{children}</Tooltip.Trigger>
 
         <Tooltip.Content
+          sideOffset={6}
           className={`px-2 py-1 bg-black/70 text-white rounded-md ${
             !isVisible && "invisible"
           }`}
