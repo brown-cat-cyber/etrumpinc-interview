@@ -5,7 +5,7 @@ import { hoverBg } from "..";
 import CustomTooltip from "./CheckerButton/Tooltip";
 import UploadSingleChecker from "./CheckerButton/UploadSingleChecker";
 
-const CustomFileInput = () => {
+const SelectingButton = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,4 +36,4 @@ const CustomFileInput = () => {
   );
 };
 
-export default CustomFileInput;
+export default SelectingButton;

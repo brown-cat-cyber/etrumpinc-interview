@@ -15,7 +15,7 @@ export default function CustomTooltip({
   return (
     <Tooltip.Provider delayDuration={200}>
       <Tooltip.Root>
-        <Tooltip.Trigger>{children}</Tooltip.Trigger>
+        <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
 
         <Tooltip.Content
           sideOffset={6}

@@ -1,26 +1,27 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { hoverBg } from "../..";
 
 type Props = {
   children: React.ReactNode;
-  onClick?: () => void;
-  disabled?: boolean;
   className?: string;
-};
+} & React.ComponentProps<"button">;
 
-export default function CheckerButton({
-  children,
-  disabled = false,
-  onClick,
-  className,
-}: Props) {
+export default forwardRef(function CheckerButton(
+  {
+    children,
+    className,
+
+    ...props
+  }: Props,
+  ref: React.Ref<HTMLButtonElement>
+) {
   return (
     <button
+      ref={ref}
       className={`${hoverBg} disabled:cursor-not-allowed ${className}`}
-      disabled={disabled}
-      onClick={onClick}
+      {...props}
     >
       {children}
     </button>
   );
-}
+});

@@ -1,14 +1,5 @@
 import { FileUploadingStatus, useFileStore } from ".";
 
-type FileAction = {
-  uploadFile: (file: File) => void;
-  updateFileState: (
-    file: File,
-    status: "uploading" | "success" | "error"
-  ) => void;
-  uploadingAllRejectedFiles: () => void;
-};
-
 export const updateFileStatus = (file: File, status: FileUploadingStatus) => {
   useFileStore.setState((state) => {
     // compare file name
@@ -18,7 +9,6 @@ export const updateFileStatus = (file: File, status: FileUploadingStatus) => {
     } else {
       state.files[index].uploadingStatus = status;
     }
-    return state;
   });
 };
 export const updateFileUpdatingPercentage = (
@@ -30,16 +20,5 @@ export const updateFileUpdatingPercentage = (
     const index = state.files.findIndex((f) => f.file.name === file.name);
     state.files[index].uploadingStatus = "uploading";
     state.files[index].uploadingPercentage = percentage;
-    return state;
-  });
-};
-
-export const uploadingAllRejectedFiles = () => {
-  useFileStore.setState((state) => {
-    // filter out rejected files and set uploading status
-    state.files
-      .filter((f) => f.uploadingStatus === "error")
-      .forEach((f) => (f.uploadingStatus = "uploading"));
-    return state;
   });
 };

@@ -40,7 +40,7 @@ const server = createServer((req, res) => {
           res.writeHead(500, {
             "Content-Type": "text/plain",
           });
-          res.end("server error");
+          res.end("intended server error");
           return;
         }
         res.writeHead(status, {

@@ -6,16 +6,13 @@ import CheckerButton from ".";
 
 type Props = {
   children: React.ReactNode;
-  onClick: () => void;
-  className?: string;
   text?: string;
-};
+} & React.ComponentProps<"button">;
 
 export default function UploadSingleChecker({
   children,
-  onClick,
-  className,
   text = "重新上传",
+  ...props
 }: Props) {
   const uploadingFileSum = useFileStore(
     (state) =>
@@ -24,13 +21,7 @@ export default function UploadSingleChecker({
   const exceedLimit = uploadingFileSum >= 5;
   return (
     <CustomTooltip text={exceedLimit ? "最多同时上传5个文件" : text}>
-      <CheckerButton
-        onClick={onClick}
-        disabled={exceedLimit}
-        className={className}
-      >
-        {children}
-      </CheckerButton>
+      <CheckerButton {...props}>{children}</CheckerButton>
     </CustomTooltip>
   );
 }
